@@ -1,15 +1,16 @@
-import {UrlAddress} from "../types/UrlAddress";
+import {UrlAddress, UrlCredentials} from "../types/UrlAddress";
 import {User} from "../types/User";
 import {AuthLogoutInputType, AuthorizationUser, AuthRefreshInputType} from "../types/Auth";
 import {accessTokenKey, getCookie} from "./cookies";
 
 const BaseUrl = 'https://localhost:7294'
 
-export type Controller = "UrlAddress" | "Users" | "Auth"
-type dataType = UrlAddress | User | AuthorizationUser | AuthRefreshInputType | AuthLogoutInputType
+export type Controller = "UrlAdresses" | "Users" | "Auth"
+type dataType = UrlCredentials | User | AuthorizationUser | AuthRefreshInputType | AuthLogoutInputType
 type Extension = "login" | "logout" | `refresh/${string}`
 
 export const getListQuery = async (controller: Controller) => {
+    console.log(controller)
     try {
         const response = await fetch(`${BaseUrl}/api/${controller}`, {
             method: "GET"
@@ -71,7 +72,7 @@ export const postQuery = async (controller: Controller, data: dataType) => {
     }
 }
 
-export const deleteQuery = async (controller: Controller, id: number) => {
+export const deleteQuery = async (controller: Controller, id: string) => {
     try {
         const response = await fetch(`${BaseUrl}/api/${controller}/${id}`, {
             method: "DELETE"

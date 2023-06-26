@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using URLShortener.Data;
 
@@ -11,9 +12,11 @@ using URLShortener.Data;
 namespace URLShortener.Migrations
 {
     [DbContext(typeof(UrlShortenerDBContext))]
-    partial class UrlAdressDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230626123318_Fix Urls")]
+    partial class FixUrls
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

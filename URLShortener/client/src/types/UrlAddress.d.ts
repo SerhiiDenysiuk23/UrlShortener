@@ -9,3 +9,8 @@ export interface UrlAddress {
     userCreatorId: string
     userCreator: User
 }
+
+export interface UrlCredentials{
+    originalUrl: string
+    userCreatorId: string
+}

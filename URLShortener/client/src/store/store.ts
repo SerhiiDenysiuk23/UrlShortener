@@ -5,12 +5,14 @@ import {authSlice} from "./Auth/Auth.slice";
 import {userListEpics} from "./User/User.epic";
 import {authEpics} from "./Auth/Auth.epic";
 import urlAddressSlice from "./UrlAddress/UrlAddress.slice";
+import {urlEpics} from "./UrlAddress/UrlAddress.epic";
 
 const epicMiddleware = createEpicMiddleware()
 
 const rootEpic = combineEpics(
     authEpics,
-    userListEpics
+    userListEpics,
+    urlEpics
 )
 
 const rootReducer = combineReducers({

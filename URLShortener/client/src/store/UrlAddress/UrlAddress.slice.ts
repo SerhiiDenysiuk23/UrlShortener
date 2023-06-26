@@ -1,5 +1,5 @@
 import {createAction, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {UrlAddress} from "../../types/UrlAddress";
+import {UrlAddress, UrlCredentials} from "../../types/UrlAddress";
 
 interface UrlAddressState{
     urlAddress: UrlAddress | null,
@@ -31,7 +31,7 @@ const urlAddressSlice = createSlice({
 
 
 export const fetchUrlAddressAction = createAction<string>("fetchUrlAddress");
-export const createUrlAddressAction = createAction<UrlAddress>("createUrlAddress");
+export const createUrlAddressAction = createAction<UrlCredentials>("createUrlAddress");
 export const fetchUrlAddressListAction = createAction("fetchUrlAddressList");
 export const deleteUrlAddressAction = createAction<UrlAddress>("deleteUrlAddress");
 export default urlAddressSlice;

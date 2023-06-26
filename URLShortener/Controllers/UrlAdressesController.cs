@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using URLShortener.Models;
 using URLShortener.Data;
+using URLShortener.Services;
+using Microsoft.AspNetCore.Http.Extensions;
 
 namespace URLShortener.Controllers
 {
@@ -25,10 +27,10 @@ namespace URLShortener.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UrlAdress>>> GetUrlAdresses()
         {
-          if (_context.UrlAdresses == null)
-          {
-              return NotFound();
-          }
+            if (_context.UrlAdresses == null)
+            {
+                return NotFound();
+            }
             return await _context.UrlAdresses.ToListAsync();
         }
 
@@ -36,10 +38,10 @@ namespace URLShortener.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<UrlAdress>> GetUrlAdress(Guid id)
         {
-          if (_context.UrlAdresses == null)
-          {
-              return NotFound();
-          }
+            if (_context.UrlAdresses == null)
+            {
+                return NotFound();
+            }
             var urlAdress = await _context.UrlAdresses.FindAsync(id);
 
             if (urlAdress == null)
@@ -81,19 +83,33 @@ namespace URLShortener.Controllers
             return NoContent();
         }
 
+
         // POST: api/UrlAdresses
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<UrlAdress>> PostUrlAdress(UrlAdress urlAdress)
+        public async Task<ActionResult<UrlAdress>> PostUrlAdress(UrlCredentials urlAdress)
         {
-          if (_context.UrlAdresses == null)
-          {
-              return Problem("Entity set 'UrlAdressDBContext.UrlAdresses'  is null.");
-          }
-            _context.UrlAdresses.Add(urlAdress);
+            if (_context.UrlAdresses == null)
+            {
+                return Problem("Entity set 'UrlAdressDBContext.UrlAdresses'  is null.");
+            }
+
+            var parts = HttpContext.Request.GetDisplayUrl().Split('/');
+
+            var urlObj = new UrlAdress
+            {
+                OriginalUrl = urlAdress.OriginalUrl,
+                ShortUrl = parts[0] + "//" + parts[2] + '/' + Guid.NewGuid().ToString("N")[..8],
+                UserCreatorId = urlAdress.UserCreatorId,
+                UserCreator = _context.Users.Find(urlAdress.UserCreatorId)
+            };
+
+
+            _context.UrlAdresses.Add(urlObj);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUrlAdress", new { id = urlAdress.Id }, urlAdress);
+            return CreatedAtAction("GetUrlAdress", new { id = urlObj.Id }, urlObj);
+
         }
 
         // DELETE: api/UrlAdresses/5
