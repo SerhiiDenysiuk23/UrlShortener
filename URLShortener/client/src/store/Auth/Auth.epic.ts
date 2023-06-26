@@ -27,12 +27,12 @@ const authLoginEpic: Epic = (action$: Observable<ReturnType<typeof authLoginActi
                 ) {
                     setCookie({
                         key: refreshTokenKey,
-                        value: response.data.authMutation.auth_login.refreshToken,
+                        value: response.refreshToken,
                         lifetime: 30 * 24 * 60 * 60
                     });
                     setCookie({
                         key: accessTokenKey,
-                        value: response.data.authMutation.auth_login.accessToken,
+                        value: response.accessToken,
                         lifetime: 2 * 60
                     });
                     const userId = parseJwt<AuthUserResponse>(getCookie(refreshTokenKey)).UserId;

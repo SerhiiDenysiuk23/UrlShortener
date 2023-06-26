@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.EntityFrameworkCore;
 using URLShortener.Data;
+using URLShortener.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,8 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+JwtTokenService.Configuration = builder.Configuration;
 
 builder.Services.AddSpaStaticFiles(configuration =>
 {

@@ -8,21 +8,21 @@ namespace URLShortener.Services
 {
     public class JwtTokenService
     {
-        public static IConfiguration Configuration { get; set; } = null!;
+        public static IConfiguration Configuration { get; set; }
 
         public static string GenerateJwtToken(IEnumerable<Claim> claims, int tokenDurationInSeconds)
         {
-            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:JWT_SECRET_KEY"]));
-            var credentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256Signature);
-            var jwtSecurityToken = new JwtSecurityToken(
-                issuer: Configuration["Jwt:JWT_TOKEN_ISSUER"],
-                audience: Configuration["Jwt:JWT_TOKEN_AUDIENCE"],
-                notBefore: DateTime.Now,
-                claims: claims,
-                expires: DateTime.Now.AddSeconds(tokenDurationInSeconds),
-                signingCredentials: credentials
-            );
-            return new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+			var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:JWT_SECRET_KEY"]));
+			var credentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256Signature);
+			var jwtSecurityToken = new JwtSecurityToken(
+				issuer: Configuration["Jwt:JWT_TOKEN_ISSUER"],
+				audience: Configuration["Jwt:JWT_TOKEN_AUDIENCE"],
+				notBefore: DateTime.Now,
+				claims: claims,
+				expires: DateTime.Now.AddSeconds(tokenDurationInSeconds),
+				signingCredentials: credentials
+			);
+			return new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
         }
 
         public static IEnumerable<Claim> GetJwtTokenClaims(User user)
