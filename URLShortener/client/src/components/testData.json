@@ -1,0 +1,80 @@
+[
+  {
+    "id": "1",
+    "originalUrl": "https://www.google.com/search?q=barotrauma&sxsrf=APwXEdcp8f1nX7Tsf3W53uH7BKnu5YXSQQ:1687695392228&tbm=isch&source=iu&ictx=1&vet=1&fir=XjsHqwJ03yyFyM%252CqkI-U-BVWZ0s2M%252C_%253BIQtDvosgT6qnPM%252C9JGmCV16BPMKEM%252C_%253Biob_I7DkCo_OzM%252Cb0-EVJOVhdb8WM%252C_%253BUVO_r8LMGGA1UM%252CZ32Rmn0LY3jplM%252C_%253BrSEIQO2pTJcFXM%252C3ZKO9rlqCivhJM%252C_%253BYGsJYtDEe_nDNM%252ClfA-fJNdjXi0qM%252C_&usg=AI4_-kRtyAfxaI6oH4yAqiGLpLEHIuUQlQ&sa=X&ved=2ahUKEwjB0N6is97_AhXSSvEDHQKfC0MQ_h16BAguEAE#imgrc=IQtDvosgT6qnPM",
+    "shortUrl": "ShortLink1",
+    "description": "Description1",
+    "createdAt": "2022-06-14 16:18:00",
+    "userCreatorId": "2",
+    "userCreator": {
+      "id": "2",
+      "email": "mail2@mail.com",
+      "isAdmin": false
+    }
+  },
+  {
+    "id": "2",
+    "originalUrl": "OrigLink2",
+    "shortUrl": "ShortLink2",
+    "description": "Description2",
+    "createdAt": "2022-06-14 16:19:00",
+    "userCreatorId": "2",
+    "userCreator": {
+      "id": "2",
+      "email": "mail2@mail.com",
+      "isAdmin": false
+    }
+  },
+  {
+    "id": "3",
+    "originalUrl": "OrigLink3",
+    "shortUrl": "ShortLink3",
+    "description": "Description3",
+    "createdAt": "2022-06-14 16:20:00",
+    "userCreatorId": "2",
+    "userCreator": {
+      "id": "2",
+      "email": "mail2@mail.com",
+      "isAdmin": false
+    }
+  },
+  {
+    "id": "4",
+    "originalUrl": "OrigLink4",
+    "shortUrl": "ShortLink4",
+    "description": "Description4",
+    "createdAt": "2022-06-14 16:23:00",
+    "userCreatorId": "4",
+    "userCreator": {
+      "id": "2",
+      "email": "mail2@mail.com",
+      "isAdmin": false
+    }
+  },
+  {
+    "id": "5",
+    "originalUrl": "OrigLink5",
+    "shortUrl": "ShortLink5",
+    "description": "Description5",
+    "createdAt": "2022-06-14 16:25:00",
+    "userCreatorId": "2",
+    "userCreator": {
+      "id": "2",
+      "email": "mail2@mail.com",
+      "isAdmin": false
+    }
+  },
+  {
+    "id": "6",
+    "originalUrl": "OrigLink6",
+    "shortUrl": "ShortLink6",
+    "description": "Description6",
+    "createdAt": "2022-06-14 16:26:00",
+    "userCreatorId": "2",
+    "userCreator": {
+      "id": "2",
+      "email": "mail2@mail.com",
+      "isAdmin": false
+    }
+  }
+]

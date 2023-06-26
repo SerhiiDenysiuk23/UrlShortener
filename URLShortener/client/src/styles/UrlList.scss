@@ -1,0 +1,82 @@
+@import "Variables";
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  max-width: 100vw;
+  th, td{
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+    width: 25%;
+    max-width: 25vw;
+    max-height: 60px;
+    overflow: auto;
+    white-space: nowrap;
+    &::-webkit-scrollbar{
+      height: 10px;
+      background: #f1f1f1;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #dfdfdf;
+    }
+  }
+  th {
+    background-color: $primary-color;
+    color: white;
+  }
+  tbody tr:hover {
+    background-color: $hover-table-row-color;
+    cursor: pointer;
+  }
+  .todo-completed{
+    background: $completed-table-row-color;
+    &:hover{
+      background: $completed-hover-table-row-color;
+    }
+  }
+}
+
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding: 20px;
+  width: 100%;
+  input{
+    width: 50%;
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+  button[type="submit"]{
+    font-size: 20px;
+    padding: 10px;
+  }
+}
+
+.aboutUrl {
+  padding: 50px;
+  .row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 1em;
+    border-bottom: 1px solid $border-color;
+    padding: 0.5em 0;
+
+    .title {
+      padding: 0.5em 0;
+      white-space: nowrap;
+      text-transform: capitalize;
+      text-align: right;
+      min-width: 100px;
+    }
+
+    .content {
+      width: 100%;
+    }
+  }
+}

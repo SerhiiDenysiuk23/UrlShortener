@@ -1,0 +1,26 @@
+@import "variables";
+
+header {
+  background-color: $primary-color;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  nav{
+    li {
+      display: inline-block;
+      margin-right: 20px;
+      a {
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        &:hover{
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+}
