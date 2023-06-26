@@ -67,7 +67,7 @@ export const AuthProvider: FC<{ children: React.ReactNode }> = ({children}) => {
                 dispatch(authorizeUser(parseJwt<AuthUserResponse>(refreshToken).UserId))
             }
         } else {
-            dispatch(authLogoutAction(getCookie(refreshTokenKey) ? parseInt(parseJwt<AuthUserResponse>(getCookie(refreshTokenKey)).UserId) : 0))
+            dispatch(authLogoutAction(getCookie(refreshTokenKey) ? parseJwt<AuthUserResponse>(getCookie(refreshTokenKey)).UserId : ""))
         }
 
     }, [authUser, accessToken, refreshToken])
@@ -81,7 +81,7 @@ export const AuthProvider: FC<{ children: React.ReactNode }> = ({children}) => {
 
     const signOut = (callback: any) => {
         console.log("logout")
-        dispatch(authLogoutAction(Number(state.user!.id)))
+        dispatch(authLogoutAction(state.user!.id))
         callback()
     }
 

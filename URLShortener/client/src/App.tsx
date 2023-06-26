@@ -5,11 +5,13 @@ import UrlAbout from "./components/UrlAbout";
 import LogInForm from "./components/Sign-In-Up/LogInForm";
 import SignUpForm from "./components/Sign-In-Up/SignUpForm";
 import {AuthProvider} from "./components/Sign-In-Up/AuthProvider";
+import HeaderBtn from "./components/HeaderBtn";
 
 function App() {
     return (
         <BrowserRouter>
             <AuthProvider>
+                <HeaderBtn/>
                 <Routes>
                     <Route path={"/"} element={<UrlTable/>}/>
                     <Route path={"/link/"} element={<UrlAbout/>}/>

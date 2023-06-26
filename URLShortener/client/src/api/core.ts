@@ -1,12 +1,12 @@
 import {UrlAddress} from "../types/UrlAddress";
 import {User} from "../types/User";
-import {AuthorizationUser, AuthRefreshInputType} from "../types/Auth";
+import {AuthLogoutInputType, AuthorizationUser, AuthRefreshInputType} from "../types/Auth";
 import {accessTokenKey, getCookie} from "./cookies";
 
 const BaseUrl = 'https://localhost:7294'
 
 export type Controller = "UrlAddress" | "Users" | "Auth"
-type dataType = UrlAddress | User | AuthorizationUser | AuthRefreshInputType
+type dataType = UrlAddress | User | AuthorizationUser | AuthRefreshInputType | AuthLogoutInputType
 type Extension = "login" | "logout" | `refresh/${string}`
 
 export const getListQuery = async (controller: Controller) => {

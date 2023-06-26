@@ -39,5 +39,12 @@ button {
   }
 }
 
+header{
+  width: 100%;
+  background: $primary-color;
+  text-align: right;
+  padding: 1em;
+}
+
 @import "UrlList";
 @import "forms";
